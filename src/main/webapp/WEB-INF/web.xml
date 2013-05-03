@@ -27,7 +27,7 @@
 	version="2.5">
 	
 	<listener>
-		<listener-class>drm.taskworker.WorkerRegistration</listener-class>
+		<listener-class>drm.taskworker.Initializer</listener-class>
 	</listener>
 	
 	<servlet>

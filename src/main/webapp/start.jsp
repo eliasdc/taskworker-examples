@@ -55,6 +55,8 @@
 			
 			<label for="date">Start when (number of seconds from now):</label>
             <input type="text" name="date" id="date" value="5" /><br />
+                        <label for="deadline">Deadline (number of seconds from now):</label>
+                        <input type="text" name="deadline" id="deadline" value="" /><br />
 			
 			<input type="submit" name="submit" value="Submit">
 		</form>

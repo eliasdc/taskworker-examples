@@ -21,7 +21,7 @@ workflows:
         end: zip-files     
 
 scheduler:
-    class: drm.taskworker.schedule.FairShare
+    class: be.iminds.scheduler.FirstDeadlineFirst
     workers:
         - blob-to-cache
         - csv-to-task

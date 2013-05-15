@@ -106,13 +106,19 @@ public class StartWorkflowServlet extends HttpServlet {
 			// get the delay
 			int delay = Integer.valueOf(request.getParameter("date"));
 			Date when = new Date(System.currentTimeMillis() + (delay * 1000));
+                        String temp = request.getParameter("deadline");
+                        Date deadline = null;
+                        if (temp != null && !temp.isEmpty()) {
+                            delay = Integer.valueOf(request.getParameter("deadline"));
+                            deadline = new Date(System.currentTimeMillis() + (delay * 1000));
+                        }
 			
 			// create a workflow and save it
 			WorkflowInstance workflow = new WorkflowInstance(request.getParameter("workflow"));
 			Task task = workflow.newStartTask();
 			task.addParam("arg0", data);
 						
-			Job newJob = new Job(workflow, task, when);
+			Job newJob = new Job(workflow, task, when, deadline);
 			Service.get().addJob(newJob);
 			
 			String id = workflow.getWorkflowId().toString();
